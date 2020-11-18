@@ -12,7 +12,7 @@
  *  Created by Joseph Bingheim "The Wizard".
  *
  *  File created: 11/6/2020
- *  Last modified: 11/7/2020
+ *  Last modified: 11/18/2020
  *
  *  See bottom of file to see updates.
  */
@@ -20,11 +20,11 @@
 #ifndef _DIRECT_PIXELS_PLATFORM_TEST_H_
 #define _DIRECT_PIXELS_PLATFORM_TEST_H_
 
-#if defined(_WIN32) || defined(_WIN)
+#if defined(_WIN32) || defined(WIN32) || defined(__WIN32__)
 #define DP_BUILD_WINDOWS
-#elif defined(_APPLE)
+#elif defined(__APPLE__)
 #define DP_BUILD_MAC
-#else
+#elif defined(__linux__) || defined(__LINUX__) || defined(__unix__) || defined(__UNIX__)
 #define DP_BUILD_LINUX
 #endif
 
@@ -37,4 +37,8 @@
  *      the code to support Mac, because as your stereotypical programmer, I really hate
  *      Mac.
  *      Will probably not add to many notes from here because of how straight forward the file is.
+ *  Notes 11/18/2020 (Joseph):
+ *      Added more common checks to determine which operating system the program is being compiles
+ *      on. Also, I used the wrong apple preprocessor. Changed the linux branch from #else to
+ *      #elif defined(...) || ...
  */
